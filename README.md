@@ -1,140 +1,103 @@
-# Face-Recognition-Attendance-System
+### Face Recognition Attendance System
 
-A complete end-to-end **Face Recognition Attendance System** built using **Python, OpenCV, MediaPipe, scikit-learn, and Streamlit**. Designed with a clean **OOP-based architecture**, this application mimics real-world software design and provides a polished attendance management workflow.
+This project is a complete end-to-end Face Recognition Attendance System built using Python, OpenCV, MediaPipe FaceMesh, NumPy, Pandas, and scikit-learn. It supports real-time face registration, login, logout, and attendance tracking using a simple command-line interface.
 
----
+Features Real-time Face Detection
 
-## Features
+Uses MediaPipe FaceMesh (**478** facial landmarks).
 
-### Real-time Face Detection
-
-* Powered by **MediaPipe Face Mesh** with **468 facial landmarks**.
-* Highly accurate geometry-based face representation.
+Highly accurate geometry-based facial embedding.
 
 ### Face Recognition Engine
 
-* Landmark normalization for consistent feature extraction.
-* **Random Forest Classifier** used for face prediction.
-* Model retrains **only when a new user is registered**.
+Normalizes facial landmarks with reference points.
 
-### Login / Logout Workflow
+Generates a flattened feature vector of length **1434**.
 
-* **Login Process:**
+Trains a Random Forest classifier on landmark embeddings.
 
-  * Webcam capture → Predict face → User confirmation → Log login time.
-* **Logout Process:**
+Loads initial data from final_data.csv.
 
-  * Recognize face → Save logout time → Auto-calculate work duration.
+Registration
 
-### Attendance Logging
+Detect a face and press S to start.
 
-All activity is stored in a single CSV file: `AttendanceSystem.csv` with:
+Captures **300** facial samples per user.
 
-* Name
-* Login Time
-* Login Status
-* Logout Time
-* Work Duration
+Saves the samples to the dataset.
 
-### Clean Streamlit UI
+Login
 
-* Live camera feed
-* Register, Login, Logout buttons
-* Clear on-screen messages
-* Smooth user flow
+Detects face and press I to identify.
 
-### Modular OOP Architecture
+Predicts the user.
 
-Separate classes handle:
+Records login time and assigns status (On-Time / Late Login).
 
-* Webcam & frame capture
-* Facial landmark extraction
-* Embedding generation
-* Model training & storage
-* Attendance CSV logging
-* Streamlit front-end logic
+Logout
 
----
+Detects face and press O to confirm logout.
 
-## ️ Tech Stack
+Predicts identity again.
 
-* **Python 3**
-* **OpenCV** – Camera access & preprocessing
-* **MediaPipe** – 468-point face mesh landmarks
-* **scikit-learn** – Random Forest model
-* **Streamlit** – UI layer
-* **Pandas** – Data handling & CSV logging
+Calculates working hours.
 
----
+Saves entry into Attendance System.csv.
 
-## How It Works
+Command-Line Menu
+## Register
+2. Login
+## Logout
+4. Exit
 
-### 1️⃣ Registration
+### Tech Stack
 
-* Capture **200 face samples** using webcam.
-* Extract embeddings → Retrain & save recognition model.
+Python 3
 
-### 2️⃣ Login
+OpenCV
 
-* Detect and identify the user.
-* Ask for confirmation.
-* Log login timestamp.
+MediaPipe (FaceMesh model)
 
-### 3️⃣ Logout
+NumPy
 
-* Re-identify user.
-* Log logout timestamp.
-* Auto-compute **total working hours**.
+Pandas
 
----
+scikit-learn (RandomForestClassifier)
 
-## Project Structure (Example)
+### How It Works
 
-```
-FaceRecognitionAttendanceSystem/
-│── data/
-│   ├── embeddings.pkl
-│   ├── model.pkl
-│   └── samples/
-│
-│── src/
-│   ├── camera.py
-│   ├── face_detector.py
-│   ├── embedding_generator.py
-│   ├── model_trainer.py
-│   ├── attendance_logger.py
-│   └── app.py
-│
-│── AttendanceSystem.csv
-│── README.md
-│── requirements.txt
-```
+## Registration
 
----
+Press S to capture facial samples.
 
-## ▶️ Run the Application
+Collects **300** frames of landmark data.
 
-### Install dependencies
+Normalizes embeddings and appends to the dataset.
 
-```
-pip install -r requirements.txt
-```
+2. Login
 
-### Start Streamlit app
+Press I to authenticate.
 
-```
-streamlit run src/app.py
-```
+Predicts the user.
 
----
+Records login timestamp and status.
 
-## Future Enhancements
+## Logout
 
-* Add face recognition confidence scoring
-* Integrate database instead of CSV
-* Support for multiple cameras
-* Admin dashboard with analytics
+Press O to confirm logout.
 
----
+Computes working hours automatically.
 
-### ⭐ If you find this project useful, consider giving it a star on GitHub!
+Saves information to Attendance System.csv.
+
+### Project Structure
+
+project/ │── face_attendance.py │── final_data.csv │── Attendance System.csv │── **README**.md │── requirements.txt
+
+Installation ### Install Dependencies pip install -r requirements.txt
+
+Run the Application python face_attendance.py
+
+### Example Requirements File
+
+opencv-python mediapipe pandas numpy scikit-learn
