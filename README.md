@@ -68,15 +68,18 @@ It supports real-time face registration, login, logout, and attendance tracking 
 
 **Project Structure**
 project/
-│── face_attendance.ipynb
+│── face_attendance.py
 │── final_data.csv
 │── Attendance System.csv
 │── README.md
 │── requirements.txt
 
+
 **Installation**
-*Install Dependencies*
-``` pip install -r requirements.txt ```
+- Install Dependencies
+```
+pip install -r requirements.txt
+ ```
 
 **Run the Application**
 python face_attendance.py
