@@ -1,62 +1,72 @@
-### Face Recognition Attendance System
+Face Recognition Attendance System
 
-This project is a complete end-to-end Face Recognition Attendance System built using Python, OpenCV, MediaPipe FaceMesh, NumPy, Pandas, and scikit-learn. It supports real-time face registration, login, logout, and attendance tracking using a simple command-line interface.
+This project is a complete end-to-end Face Recognition Attendance System built using Python, OpenCV, MediaPipe FaceMesh, NumPy, Pandas, and scikit-learn.
+It supports real-time face registration, login, logout, and attendance tracking using a simple command-line interface.
 
-Features Real-time Face Detection
+Features
+Real-time Face Detection
 
-Uses MediaPipe FaceMesh (**478** facial landmarks).
+Uses MediaPipe FaceMesh (478 facial landmarks)
 
-Highly accurate geometry-based facial embedding.
+Geometry-based facial embedding
 
-### Face Recognition Engine
+High accuracy and stable detection under different lighting conditions
 
-Normalizes facial landmarks with reference points.
+Face Recognition Engine
 
-Generates a flattened feature vector of length **1434**.
+Normalizes facial landmarks with reference reference points
 
-Trains a Random Forest classifier on landmark embeddings.
+Generates a flattened embedding vector of length 1434
 
-Loads initial data from final_data.csv.
+Uses Random Forest Classifier for identity prediction
+
+Loads initial trained data from final_data.csv
 
 Registration
 
-Detect a face and press S to start.
+Detect a face and press S
 
-Captures **300** facial samples per user.
+Captures 300 samples per user
 
-Saves the samples to the dataset.
+Generates embeddings and saves them into the dataset
+
+Automatically updates the model with new data
 
 Login
 
-Detects face and press I to identify.
+Detect a face and press I
 
-Predicts the user.
+Predicts user identity
 
-Records login time and assigns status (On-Time / Late Login).
+Records login timestamp
+
+Assigns login status (On-Time / Late Login)
 
 Logout
 
-Detects face and press O to confirm logout.
+Detect a face and press O
 
-Predicts identity again.
+Recognizes the user again
 
-Calculates working hours.
+Records logout time
 
-Saves entry into Attendance System.csv.
+Calculates total work duration
+
+Saves final entry into Attendance System.csv
 
 Command-Line Menu
-## Register
+1. Register
 2. Login
-## Logout
+3. Logout
 4. Exit
 
-### Tech Stack
+Tech Stack
 
 Python 3
 
 OpenCV
 
-MediaPipe (FaceMesh model)
+MediaPipe FaceMesh
 
 NumPy
 
@@ -64,40 +74,53 @@ Pandas
 
 scikit-learn (RandomForestClassifier)
 
-### How It Works
+How It Works
+1. Registration
 
-## Registration
+Press S to start capturing samples
 
-Press S to capture facial samples.
+Collects 300 frames per user
 
-Collects **300** frames of landmark data.
+Extracts FaceMesh landmarks
 
-Normalizes embeddings and appends to the dataset.
+Normalizes and appends embeddings to final_data.csv
 
 2. Login
 
-Press I to authenticate.
+Press I to authenticate
 
-Predicts the user.
+Predicts user from embeddings
 
-Records login timestamp and status.
+Saves login timestamp
 
-## Logout
+3. Logout
 
-Press O to confirm logout.
+Press O to logout
 
-Computes working hours automatically.
+Identifies the user
 
-Saves information to Attendance System.csv.
+Calculates work duration
 
-### Project Structure
+Saves complete attendance record into Attendance System.csv
 
-project/ │── face_attendance.py │── final_data.csv │── Attendance System.csv │── **README**.md │── requirements.txt
+Project Structure
+project/
+│── face_attendance.py
+│── final_data.csv
+│── Attendance System.csv
+│── README.md
+│── requirements.txt
 
-Installation ### Install Dependencies pip install -r requirements.txt
+Installation
+Install Dependencies
+pip install -r requirements.txt
 
-Run the Application python face_attendance.py
+Run the Application
+python face_attendance.py
 
-### Example Requirements File
-
-opencv-python mediapipe pandas numpy scikit-learn
+Example requirements.txt
+opencv-python
+mediapipe
+pandas
+numpy
+scikit-learn
