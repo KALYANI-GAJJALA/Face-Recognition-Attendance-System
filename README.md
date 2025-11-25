@@ -67,13 +67,14 @@ It supports real-time face registration, login, logout, and attendance tracking 
 - Saves complete attendance record into Attendance System.csv
 
 **Project Structure**
+```
 project/
 │── face_attendance.py
 │── final_data.csv
 │── Attendance System.csv
 │── README.md
 │── requirements.txt
-
+```
 
 **Installation**
 - Install Dependencies
